@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GoogleCoordinates" Class="RoutesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\GoogleCoordinates.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="GoogleCoordinatesConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Coordinates" Member="Coordinates">
+    <Type Name="Coordinate">
+      <Column Name="coordinateId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="imei" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="longitude" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="latitude" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

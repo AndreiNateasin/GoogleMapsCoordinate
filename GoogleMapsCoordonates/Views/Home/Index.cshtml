@@ -1,0 +1,36 @@
+﻿@model IEnumerable<long>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="coordonatesTable">
+    <tr>
+        <th>IMEI
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @item
+
+            </td>
+            <td>
+                @Html.ActionLink("Details", "MapDisplay", new { imei = item }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item })
+            </td>
+        </tr>
+    }
+
+</table>

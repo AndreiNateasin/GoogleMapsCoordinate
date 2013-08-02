@@ -1,0 +1,67 @@
+﻿@model GoogleMapsCoordonates.Models.Home.RouteInput
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div id="coordonates">
+        <fieldset>
+            <legend>Route From</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FromLat)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FromLat)
+                @Html.ValidationMessageFor(model => model.FromLat)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FromLong)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FromLong)
+                @Html.ValidationMessageFor(model => model.FromLong)
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Route To</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ToLat)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ToLat)
+                @Html.ValidationMessageFor(model => model.ToLat)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ToLong)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ToLong)
+                @Html.ValidationMessageFor(model => model.ToLong)
+            </div>
+
+        </fieldset>
+    </div>
+    <p>
+        <input type="submit" value="Create" />
+    </p>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
