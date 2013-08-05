@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using GoogleMapsCoordonates.Models;
 using GoogleMapsCoordonates.Models.Home;
 using GoogleMapsCoordonates.Repositories;
-
+using GoogleMapsCoordonates.Helpers;
 namespace GoogleMapsCoordonates.Controllers
 {
     public class HomeController : Controller
     {
-        private RoutesRepository _repository;
+        private readonly RoutesRepository _repository;
+        private const int NumberOfMarkersAvailable = 23;
 
         public HomeController()
         {
@@ -27,11 +25,11 @@ namespace GoogleMapsCoordonates.Controllers
 
         public ActionResult MapDisplay(long imei)
         {
-            IList<Coordinate> coordinatesByIMEI = _repository.GetCoordinatesByIMEI(imei);
+            var coordinatesByIMEI = _repository.GetCoordinatesByIMEI(imei).TruncateCoordinates(NumberOfMarkersAvailable);
             return View(coordinatesByIMEI);
         }
 
-        public ActionResult About()
+        public ActionResult About() 
         {
             ViewBag.Message = "Your app description page.";
 
